@@ -191,7 +191,7 @@ public class EndecaMonitor implements Monitor, Migrator {
 			status.setStatusCode(Status.StatusCode.PartialSuccess);
 			status.setShortMessage(ce == null ? "" : ce.getClass().getSimpleName());
 			messageBuffer.append(ce == null ? "" : ce.getMessage());
-			log.severe("Connection Exception Thrown");
+			log.severe("Connection Exception Thrown:" + ce);
 		} catch (IOException ioe) {
 			status.setException(ioe);
 			status.setStatusCode(Status.StatusCode.ErrorTargetServiceExecutionFailed);
