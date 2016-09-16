@@ -187,11 +187,11 @@ public class EndecaMonitor implements Monitor, Migrator {
 			this.queryPerfMax = Double.parseDouble(retrieveXmlElementTags(STAT, STAT_ATTR_NAME, STAT_ATTR_MAX, STAT_QUERY_PERF_NAME));
 								
 		} catch (ConnectException ce) {
-			status.setException(ce);
-			status.setStatusCode(Status.StatusCode.PartialSuccess);
-			status.setShortMessage(ce == null ? "" : ce.getClass().getSimpleName());
-			messageBuffer.append(ce == null ? "" : ce.getMessage());
-			log.severe("Connection Exception Thrown: " + ce.getMessage());
+			//status.setException(ce);
+			//status.setStatusCode(Status.StatusCode.PartialSuccess);
+			//status.setShortMessage(ce == null ? "" : ce.getClass().getSimpleName());
+			//messageBuffer.append(ce == null ? "" : ce.getMessage());
+			log.severe("Connection Exception Thrown");
 		} catch (IOException ioe) {
 			status.setException(ioe);
 			status.setStatusCode(Status.StatusCode.ErrorTargetServiceExecutionFailed);
@@ -385,7 +385,6 @@ public class EndecaMonitor implements Monitor, Migrator {
 			}
 		}catch(Exception ex) {
 			log.severe(ex.getMessage());	
-			log.info("message came from here");
 		}
 		
 		return xmlAttribute;		
