@@ -134,11 +134,11 @@ public class EndecaMonitor implements Monitor, Migrator {
 	public Status execute(MonitorEnvironment env) throws Exception {
 		Status status = new Status();				
 				
-		log.info("info");
-		log.warning("warning");
+		//log.info("info");
+		//log.warning("warning");
 		
 		if (log.isLoggable(Level.FINE)){
-			log.fine("fine");
+			//log.fine("fine");
 			log.fine("Plugin Starting Up Now...");
 		}
 
@@ -191,7 +191,7 @@ public class EndecaMonitor implements Monitor, Migrator {
 			status.setStatusCode(Status.StatusCode.PartialSuccess);
 			status.setShortMessage(ce == null ? "" : ce.getClass().getSimpleName());
 			messageBuffer.append(ce == null ? "" : ce.getMessage());
-			log.log(Level.SEVERE, status.getMessage(), ce);
+			log.log(Level.SEVERE, "Connection Exception Thrown");
 		} catch (IOException ioe) {
 			status.setException(ioe);
 			status.setStatusCode(Status.StatusCode.ErrorTargetServiceExecutionFailed);
