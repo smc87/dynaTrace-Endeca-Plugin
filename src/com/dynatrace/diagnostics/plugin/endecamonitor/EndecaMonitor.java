@@ -191,7 +191,7 @@ public class EndecaMonitor implements Monitor, Migrator {
 			status.setStatusCode(Status.StatusCode.PartialSuccess);
 			status.setShortMessage(ce == null ? "" : ce.getClass().getSimpleName());
 			messageBuffer.append(ce == null ? "" : ce.getMessage());
-			log.log(Level.SEVERE, "Connection Exception Thrown");
+			log.severe("Connection Exception Thrown: " + ce.getMessage());
 		} catch (IOException ioe) {
 			status.setException(ioe);
 			status.setStatusCode(Status.StatusCode.ErrorTargetServiceExecutionFailed);
@@ -384,7 +384,8 @@ public class EndecaMonitor implements Monitor, Migrator {
 				log.severe("Node(s) are null: " + elementTag + " and " + attribute);
 			}
 		}catch(Exception ex) {
-			log.severe(ex.getMessage());			
+			log.severe(ex.getMessage());	
+			log.info("message came from here");
 		}
 		
 		return xmlAttribute;		
